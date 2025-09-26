@@ -209,4 +209,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     new InteractiveDocument();
+
+    // Menú hamburguesa para móvil
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+    });
+    // Cierra el menú al hacer clic en un enlace del índice
+    document.querySelectorAll('#toc-list a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            menuToggle.classList.remove('open');
+        });
+    });
 });
