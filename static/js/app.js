@@ -217,8 +217,8 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenu.classList.toggle('open');
         menuToggle.classList.toggle('open');
     });
-    // Cierra el menú al hacer clic en un enlace del índice
-    document.querySelectorAll('#toc-list a').forEach(link => {
+    // Cierra el menú al hacer clic en un enlace del índice móvil
+    document.querySelectorAll('#toc-list-mobile a').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.remove('open');
             menuToggle.classList.remove('open');
