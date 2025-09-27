@@ -221,7 +221,7 @@ mark { background-color: var(--highlight-bg); padding: 2px; border-radius: 3px; 
 
 /* Menú móvil */
 #mobile-menu {
-    display: none;
+    display: none;  /* Oculto en escritorio */
     position: fixed;
     top: 0;
     left: 0;
@@ -230,58 +230,26 @@ mark { background-color: var(--highlight-bg); padding: 2px; border-radius: 3px; 
     height: 100vh;
     background: var(--card-bg-color);
     z-index: 1100;
-    transform: translateX(-100%);
+    transform: translateX(-100%);  /* Oculto inicialmente */
     transition: transform 0.3s ease;
     overflow-y: auto;
     padding: 4rem 1rem 2rem;
     box-shadow: 2px 0 12px rgba(0,0,0,0.1);
 }
 
+/* Clase que muestra el menú cuando está abierto */
 #mobile-menu.open {
-    transform: translateX(0);
+    transform: translateX(0);  /* Muestra el menú */
 }
 
-#toc-nav-mobile {
-    margin-top: 2rem;
-}
-
-#toc-list-mobile {
-    list-style: none;
-    padding: 0;
-}
-
-#toc-list-mobile a {
-    text-decoration: none;
-    color: var(--text-color);
-    display: block;
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    transition: all 0.2s;
-}
-
-#toc-list-mobile a:hover {
-    background: var(--primary-color);
-    color: #fff;
-}
-
-/* Media queries */
+/* Media query para móvil */
 @media (max-width: 1024px) {
-    .mobile-controls {
-        display: flex;
-    }
-
     #mobile-menu {
-        display: block;
+        display: block;  /* Activamos el menú en móvil */
     }
-
+    
     .sidebar {
-        display: none;
-    }
-
-    .container {
-        grid-template-columns: 1fr;
-        padding: 0 1rem;
-        margin-top: 4rem;
+        display: none;  /* Ocultamos la barra lateral en móvil */
     }
 }
 
