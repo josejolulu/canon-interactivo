@@ -198,7 +198,7 @@ mark { background-color: var(--highlight-bg); padding: 2px; border-radius: 3px; 
     left: 1rem;
     right: 1rem;
     z-index: 1200;
-    display: none; /* Oculto por defecto, visible en móvil */
+    display: flex; /* SIEMPRE visible por defecto */
     justify-content: space-between;
 }
 
@@ -262,5 +262,11 @@ mark { background-color: var(--highlight-bg); padding: 2px; border-radius: 3px; 
     #mobile-menu {
         width: 100%;
         max-width: none;
+    }
+}
+
+@media (min-width: 1025px) {
+    .mobile-controls {
+        display: none;
     }
 }
