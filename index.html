@@ -14,17 +14,11 @@
 </head>
 <body data-theme="light">
     <div id="reading-progress-bar"></div>
-    <header class="main-header">
-        <div class="header-content">
-            <h1 class="site-title">Documento Interactivo</h1>
-            <div class="controls">
-                <input type="search" id="search-input" placeholder="Buscar..." aria-label="Buscar en el texto">
-                <button id="theme-toggle" aria-label="Cambiar a modo oscuro">🌙</button>
-            </div>
-        </div>
-    </header>
+    <button id="menu-toggle" aria-label="Mostrar índice" class="menu-toggle">
+        <i class="fa fa-bars"></i>
+    </button>
     <div class="container">
-        <aside class="sidebar">
+        <aside class="sidebar" id="mobile-menu">
             <nav id="toc-nav" aria-label="Tabla de contenidos">
                 <h3>Índice</h3>
                 <ul id="toc-list">
@@ -334,33 +328,6 @@
         <div id="lightbox-caption"></div>
     </div>
     <button id="go-top-btn" title="Ir arriba"><i class="fa-solid fa-arrow-up"></i></button>
-    <button id="menu-toggle" aria-label="Mostrar índice" class="menu-toggle">
-        <i class="fa fa-bars"></i>
-    </button>
-    <nav id="mobile-menu">
-        <aside class="sidebar">
-            <nav id="toc-nav" aria-label="Tabla de contenidos">
-                <h3>Índice</h3>
-                <ul id="toc-list">
-                    
-                    <li class="toc-h1"><a href="#el-canon-y-la-técnica-imitativa">EL CANON Y LA TÉCNICA IMITATIVA</a></li>
-                    
-                    <li class="toc-h2"><a href="#1-definición-y-principios-fundamentales-del-canon">1. DEFINICIÓN Y PRINCIPIOS FUNDAMENTALES DEL CANON</a></li>
-                    
-                    <li class="toc-h2"><a href="#2-principios-para-la-construcción-del-antecedente-dux">2. PRINCIPIOS PARA LA CONSTRUCCIÓN DEL ANTECEDENTE (DUX)</a></li>
-                    
-                    <li class="toc-h2"><a href="#3-clasificación-del-canon-según-el-intervalo-de-imitación">3. CLASIFICACIÓN DEL CANON SEGÚN EL INTERVALO DE IMITACIÓN</a></li>
-                    
-                    <li class="toc-h2"><a href="#4-la-conclusión-del-canon-la-cadencia">4. LA CONCLUSIÓN DEL CANON: LA CADENCIA</a></li>
-                    
-                    <li class="toc-h2"><a href="#5-metodología-de-trabajo-y-análisis">5. METODOLOGÍA DE TRABAJO Y ANÁLISIS</a></li>
-                    
-                    <li class="toc-h2"><a href="#6-recursos-adicionales-y-audiciones-recomendadas">6. RECURSOS ADICIONALES Y AUDICIONES RECOMENDADAS</a></li>
-                    
-                </ul>
-            </nav>
-        </aside>
-    </nav>
     <script src="static/js/app.js"></script>
 </body>
 </html>
