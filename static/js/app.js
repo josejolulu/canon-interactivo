@@ -210,18 +210,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
     new InteractiveDocument();
 
-    // Menú hamburguesa para móvil
+    // Menú móvil
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
-    menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
-        menuToggle.classList.toggle('open');
-    });
-    // Cierra el menú al hacer clic en un enlace del índice móvil
-    document.querySelectorAll('#toc-list-mobile a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
-            menuToggle.classList.remove('open');
+    const body = document.body;
+
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            menuToggle.classList.toggle('active');
         });
-    });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                menuToggle.classList.remove('active');
+            });
+        });
+
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (mobileMenu.classList.contains('open') && 
+                !mobileMenu.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                mobileMenu.classList.remove('open');
+                menuToggle.classList.remove('active');
+            }
+        });
+    }
+
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        const storedTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', storedTheme);
+        themeToggle.textContent = storedTheme === 'dark' ? '☀️' : '🌙';
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        });
+    }
 });
