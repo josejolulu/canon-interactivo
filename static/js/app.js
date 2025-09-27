@@ -216,7 +216,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
 
     if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener('click', () => {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             mobileMenu.classList.toggle('open');
             menuToggle.classList.toggle('active');
         });
@@ -238,9 +239,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 menuToggle.classList.remove('active');
             }
         });
+
+        // Prevenir cierre al hacer clic dentro del menú
+        mobileMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
     }
 
-    // Theme toggle
+    // Theme toggle con localStorage
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
         const storedTheme = localStorage.getItem('theme') || 'light';
