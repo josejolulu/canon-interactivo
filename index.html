@@ -1,42 +1,375 @@
+<!-- templates/base.html.jinja2 (CORREGIDO Y MEJORADO) -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Canon y Técnica Imitativa</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EL CANON Y LA TÉCNICA IMITATIVA</title>
+    <meta name="description" content="Versión web interactiva del documento sobre el Canon y la Técnica Imitativa.">
+    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-    <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            'serif': ['Lora', 'serif'],
-            'sans': ['Source Sans 3', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
-<script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
-    "react/": "https://aistudiocdn.com/react@^19.1.1/",
-    "react": "https://aistudiocdn.com/react@^19.1.1"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
 </head>
-<body class="font-serif">
-    <div id="root"></div>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script type="text/babel" data-type="module" src="./index.tsx"></script>
-<script type="module" src="/index.tsx"></script>
+<body data-theme="light">
+    <div id="reading-progress-bar"></div>
+    <!-- Botones de control -->
+    <div class="mobile-controls">
+        <button id="menu-toggle" aria-label="Mostrar índice" class="menu-toggle">
+            <i class="fa fa-bars"></i>
+        </button>
+        <button id="theme-toggle" aria-label="Cambiar tema" class="theme-toggle">
+            🌙
+        </button>
+    </div>
+    <!-- Menú hamburguesa para móvil -->
+    <nav id="mobile-menu" aria-label="Tabla de contenidos">
+        <h3>Índice</h3>
+        <ul id="toc-list-mobile">
+            
+            <li class="toc-h1">
+                <a href="#el-canon-y-la-técnica-imitativa">EL CANON Y LA TÉCNICA IMITATIVA</a>
+            </li>
+            
+            <li class="toc-h2">
+                <a href="#1-definición-y-principios-fundamentales-del-canon">1. DEFINICIÓN Y PRINCIPIOS FUNDAMENTALES DEL CANON</a>
+            </li>
+            
+            <li class="toc-h2">
+                <a href="#2-principios-para-la-construcción-del-antecedente-dux">2. PRINCIPIOS PARA LA CONSTRUCCIÓN DEL ANTECEDENTE (DUX)</a>
+            </li>
+            
+            <li class="toc-h2">
+                <a href="#3-clasificación-del-canon-según-el-intervalo-de-imitación">3. CLASIFICACIÓN DEL CANON SEGÚN EL INTERVALO DE IMITACIÓN</a>
+            </li>
+            
+            <li class="toc-h2">
+                <a href="#4-la-conclusión-del-canon-la-cadencia">4. LA CONCLUSIÓN DEL CANON: LA CADENCIA</a>
+            </li>
+            
+            <li class="toc-h2">
+                <a href="#5-metodología-de-trabajo-y-análisis">5. METODOLOGÍA DE TRABAJO Y ANÁLISIS</a>
+            </li>
+            
+            <li class="toc-h2">
+                <a href="#6-recursos-adicionales-y-audiciones-recomendadas">6. RECURSOS ADICIONALES Y AUDICIONES RECOMENDADAS</a>
+            </li>
+            
+        </ul>
+    </nav>
+    <div class="container">
+        <!-- Sidebar solo para escritorio -->
+        <aside class="sidebar">
+            <nav id="toc-nav" aria-label="Tabla de contenidos">
+                <h3>Índice</h3>
+                <ul id="toc-list">
+                    
+                    <li class="toc-h1"><a href="#el-canon-y-la-técnica-imitativa">EL CANON Y LA TÉCNICA IMITATIVA</a></li>
+                    
+                    <li class="toc-h2"><a href="#1-definición-y-principios-fundamentales-del-canon">1. DEFINICIÓN Y PRINCIPIOS FUNDAMENTALES DEL CANON</a></li>
+                    
+                    <li class="toc-h2"><a href="#2-principios-para-la-construcción-del-antecedente-dux">2. PRINCIPIOS PARA LA CONSTRUCCIÓN DEL ANTECEDENTE (DUX)</a></li>
+                    
+                    <li class="toc-h2"><a href="#3-clasificación-del-canon-según-el-intervalo-de-imitación">3. CLASIFICACIÓN DEL CANON SEGÚN EL INTERVALO DE IMITACIÓN</a></li>
+                    
+                    <li class="toc-h2"><a href="#4-la-conclusión-del-canon-la-cadencia">4. LA CONCLUSIÓN DEL CANON: LA CADENCIA</a></li>
+                    
+                    <li class="toc-h2"><a href="#5-metodología-de-trabajo-y-análisis">5. METODOLOGÍA DE TRABAJO Y ANÁLISIS</a></li>
+                    
+                    <li class="toc-h2"><a href="#6-recursos-adicionales-y-audiciones-recomendadas">6. RECURSOS ADICIONALES Y AUDICIONES RECOMENDADAS</a></li>
+                    
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <article>
+                <div class="hero-banner">
+                    <h1><i class="fa-solid fa-music"></i> EL CANON Y LA TÉCNICA IMITATIVA</h1>
+                    <p>Guía interactiva para comprender y practicar el canon y la técnica imitativa en música.</p>
+                </div>
+                
+                    
+                        <div class="content-card title-card">
+                            <h1 id="el-canon-y-la-técnica-imitativa">EL CANON Y LA TÉCNICA IMITATIVA</h1>
+                        </div>
+                    
+                
+                    
+                        <div class="content-card">
+                            <h2 id="1-definición-y-principios-fundamentales-del-canon">1. DEFINICIÓN Y PRINCIPIOS FUNDAMENTALES DEL CANON</h2>
+                            
+                                
+                                    <p>El canon (del griego κανών, "regla" o "norma") es una de las formas contrapuntísticas más rigurosas. Su principio estructural se basa en la imitación estricta y diferida: una melodía inicial, denominada antecedente o dux, es replicada de forma exacta por una o más voces, llamadas consecuentes o comes, que inician su intervención tras un intervalo de tiempo predeterminado.</p>
+                                
+                            
+                                
+                                    <figure>
+                                        <img src="static/images/pagina_1_img_0.png" alt="Diagrama estructural de un canon a 3 voces con cadencia final." class="content-image" loading="lazy">
+                                        <figcaption>Diagrama estructural de un canon a 3 voces con cadencia final.</figcaption>
+                                    </figure>
+                                
+                            
+                                
+                                    <p>El principal objetivo técnico en la escritura de un canon es el diseño de un dux que no solo posea valor melódico intrínseco, sino que también genere un contrapunto armónicamente coherente al superponerse consigo mismo. Cada decisión melódica y rítmica en el antecedente tiene una consecuencia directa en la armonía vertical resultante.</p>
+                                
+                            
+                        </div>
+                    
+                
+                    
+                        <div class="content-card">
+                            <h2 id="2-principios-para-la-construcción-del-antecedente-dux">2. PRINCIPIOS PARA LA CONSTRUCCIÓN DEL ANTECEDENTE (DUX)</h2>
+                            
+                                
+                                    <p>La viabilidad y calidad de un canon dependen casi en su totalidad de un diseño melódico y rítmico meticuloso en su voz principal.</p>
+                                
+                            
+                                
+                                    <ul><li><strong>Diseño Melódico y Contorno:</strong> Se debe buscar un equilibrio entre el movimiento por grados conjuntos y los saltos. Los grados conjuntos aportan fluidez y facilidad de imitación, mientras que los saltos, si se emplean con moderación y se resuelven adecuadamente, enriquecen la línea. Es fundamental evitar melodías excesivamente disjuntas o monótonas, y resolver los saltos preferentemente por movimiento contrario o por grados conjuntos descendentes.</li><li><strong>Variedad Rítmica y Prevención de Paralelismos:</strong> La repetición inmediata de una misma nota en el dux debe evitarse sistemáticamente, ya que puede generar octavas o quintas paralelas en la imitación. Es recomendable alternar valores rítmicos y evitar patrones demasiado predecibles, lo que ayuda a prevenir la aparición de paralelismos y a mantener el interés musical.</li><li><strong>Control de la Armonía Implícita:</strong> El dux debe ser concebido teniendo en cuenta los intervalos armónicos que se formarán al superponerse con su propia imitación. Es fundamental prever y evitar la acumulación de disonancias no preparadas o resoluciones incorrectas, anticipando los acordes resultantes y asegurando la corrección contrapuntística.</li></ul>
+                                
+                            
+                        </div>
+                    
+                
+                    
+                        <div class="content-card">
+                            <h2 id="3-clasificación-del-canon-según-el-intervalo-de-imitación">3. CLASIFICACIÓN DEL CANON SEGÚN EL INTERVALO DE IMITACIÓN</h2>
+                            
+                                
+                                    <p>Constituyen el punto de partida pedagógico por ser imitaciones interválicamente idénticas.</p>
+                                
+                            
+                                
+                                    <ul><li><strong>Al Unísono:</strong> Aunque la imitación es nota por nota, la ausencia de distancia vertical provoca frecuentes cruces de voz y exige especial atención a la independencia rítmica y melódica de las líneas.</li></ul>
+                                
+                            
+                                
+                                    <figure>
+                                        <img src="static/images/pagina_2_img_0.png" alt="Partitura del canon 'Selig, selig' de W. A. Mozart." class="content-image" loading="lazy">
+                                        <figcaption>Partitura del canon 'Selig, selig' de W. A. Mozart.</figcaption>
+                                    </figure>
+                                
+                            
+                                
+                                    <ul><li><strong>A la Octava:</strong> La distancia entre las voces proporciona una gran claridad textural, facilitando la percepción de la independencia lineal y reduciendo el riesgo de cruces de voz, aunque requiere controlar cuidadosamente las quintas y octavas paralelas.</li></ul>
+                                
+                            
+                                
+                                    <figure>
+                                        <img src="static/images/pagina_3_img_1.png" alt="Partitura de ejemplo de un Canon a la Octava." class="content-image" loading="lazy">
+                                        <figcaption>Partitura de ejemplo de un Canon a la Octava.</figcaption>
+                                    </figure>
+                                
+                            
+                                
+                                    <p>Los siguientes tipos de cánones (a la 5ª o a la 4ª) son armónicamente más complejos, ya que la distancia interválica introduce nuevas posibilidades y desafíos en la gestión de la armonía y la textura.</p>
+                                
+                            
+                                
+                                    <ul><li><strong>Canon a la Quinta (Superior):</strong> El comes comienza una quinta justa por encima del dux. Esta distancia favorece la aparición de acordes de tónica y dominante, pero exige atención para evitar la acumulación de quintas paralelas y mantener la variedad armónica.</li><li><strong>Canon a la Cuarta (Superior):</strong> El comes comienza una cuarta justa por encima. La cuarta, siendo un intervalo disonante en la armonía tradicional, requiere especial cuidado en la preparación y resolución de las disonancias que puedan surgir.</li></ul>
+                                
+                            
+                                
+                                    <figure>
+                                        <img src="static/images/pagina_3_img_2.png" alt="Partitura de un Canon a la Quinta." class="content-image" loading="lazy">
+                                        <figcaption>Partitura de un Canon a la Quinta.</figcaption>
+                                    </figure>
+                                
+                            
+                                
+                                    <p>Por último, los cánones a la 2ª ó 7ª y a la 3ª ó 6ª presentan un nivel de dificultad superior, ya que la cercanía o lejanía interválica afecta directamente a la consonancia y la gestión de las disonancias.</p>
+                                
+                            
+                                
+                                    <ul><li><strong>A la Segunda y a la Séptima:</strong> La proximidad de las voces produce una alta densidad de disonancias, especialmente segundas y séptimas, lo que exige una planificación muy precisa para evitar choques armónicos no deseados.</li></ul>
+                                
+                            
+                                
+                                    <figure>
+                                        <img src="static/images/pagina_4_img_0.png" alt="Partitura de un Canon a la Segunda de Mozart." class="content-image" loading="lazy">
+                                        <figcaption>Partitura de un Canon a la Segunda de Mozart.</figcaption>
+                                    </figure>
+                                
+                            
+                                
+                                    <ul><li><strong>A la Tercera y a la Sexta:</strong> Estos cánones tienden a generar una sonoridad rica en consonancias imperfectas, como terceras y sextas, pero pueden resultar monótonos si no se introduce suficiente variedad melódica y rítmica.</li></ul>
+                                
+                            
+                                
+                                    <figure>
+                                        <img src="static/images/pagina_5_img_1.png" alt="Partitura de un Canon a la Sexta." class="content-image" loading="lazy">
+                                        <figcaption>Partitura de un Canon a la Sexta.</figcaption>
+                                    </figure>
+                                
+                            
+                                
+                                    <div class="table-container">
+                                        <h4>RESUMEN DE CÁNONES POR INTERVALO DE IMITACIÓN</h4>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    
+                                                        <th>Intervalo</th>
+                                                    
+                                                        <th>Desafío Técnico</th>
+                                                    
+                                                        <th>Carácter Sonoro</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                                    <tr>
+                                                        
+                                                            <td>Octava / Unísono</td>
+                                                        
+                                                            <td>Control de 5as/8as paralelas; gestión cruce de voces.</td>
+                                                        
+                                                            <td>Claro, directo, puro.</td>
+                                                        
+                                                    </tr>
+                                                
+                                                    <tr>
+                                                        
+                                                            <td>Quinta / Cuarta</td>
+                                                        
+                                                            <td>Mantener estabilidad tonal; gestión cambios de cualidad.</td>
+                                                        
+                                                            <td>Robusto, dinámico.</td>
+                                                        
+                                                    </tr>
+                                                
+                                                    <tr>
+                                                        
+                                                            <td>Tercera / Sexta</td>
+                                                        
+                                                            <td>Evitar monotonía armónica y paralelismos.</td>
+                                                        
+                                                            <td>Rico, consonante.</td>
+                                                        
+                                                    </tr>
+                                                
+                                                    <tr>
+                                                        
+                                                            <td>Segunda / Séptima</td>
+                                                        
+                                                            <td>Gestión estructural de altas disonancias.</td>
+                                                        
+                                                            <td>Tenso, complejo, moderno.</td>
+                                                        
+                                                    </tr>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                
+                            
+                        </div>
+                    
+                
+                    
+                        <div class="content-card">
+                            <h2 id="4-la-conclusión-del-canon-la-cadencia">4. LA CONCLUSIÓN DEL CANON: LA CADENCIA</h2>
+                            
+                                
+                                    <p>La imitación estricta no suele mantenerse hasta la última nota. Es una práctica estándar introducir una coda o pequeño pasaje libre al final, permitiendo que las voces concluyan de manera conjunta y resuelvan la cadencia de forma satisfactoria. Esta libertad final facilita la resolución armónica y evita forzar la imitación en los compases conclusivos.</p>
+                                
+                            
+                        </div>
+                    
+                
+                    
+                        <div class="content-card">
+                            <h2 id="5-metodología-de-trabajo-y-análisis">5. METODOLOGÍA DE TRABAJO Y ANÁLISIS</h2>
+                            
+                                
+                                    <ol><li><strong>Diseño Preliminar del Dux:</strong> Componer una línea melódica de 4 a 8 compases, cuidando especialmente el contorno, la variedad rítmica y la previsión de los intervalos armónicos que surgirán en la imitación.</li><li><strong>Escritura Simultánea:</strong> Trabajar compás a compás, escribiendo el dux y el comes de manera paralela para detectar y corregir posibles conflictos armónicos o melódicos desde el inicio.</li><li><strong>Análisis Vertical y Lineal:</strong> Revisar constantemente la pieza tanto en sentido horizontal (melodía de cada voz) como vertical (armonía resultante), asegurando la corrección contrapuntística y la fluidez musical.</li><li><strong>Identificación y Corrección de Errores:</strong> Ver los errores como una oportunidad para mejorar el diseño del dux. Si surgen problemas irresolubles, es preferible modificar la melodía principal antes que forzar soluciones poco musicales.</li></ol>
+                                
+                            
+                        </div>
+                    
+                
+                    
+                        <div class="content-card">
+                            <h2 id="6-recursos-adicionales-y-audiciones-recomendadas">6. RECURSOS ADICIONALES Y AUDICIONES RECOMENDADAS</h2>
+                            
+                                
+                                    <h3 id="recursos-online">Recursos Online</h3>
+                                
+                            
+                                
+                                    <ul class="link-list">
+                                        
+                                        <li><a href="https://komptools.blogspot.com/2018/11/contrapunto-ix-canon-la-octava.html" target="_blank" rel="noopener noreferrer">Komptools Blog - "Contrapunto IX: Canon a la Octava"</a></li>
+                                        
+                                        <li><a href="https://www.teoria.com/" target="_blank" rel="noopener noreferrer">Teoria.com - Portal interactivo de teoría musical</a></li>
+                                        
+                                    </ul>
+                                
+                            
+                                
+                                    <h3 id="audiciones-esenciales-vídeos">Audiciones Esenciales (Vídeos)</h3>
+                                
+                            
+                                
+                                    
+                                        <div class="youtube-embed-container" style="display: flex; align-items: center; justify-content: center; min-height: 120px;">
+                                            <a href="https://youtu.be/15ezpwCHtJs" target="_blank" rel="noopener noreferrer" class="video-external-link">
+                                                ▶️ Ver vídeo en YouTube
+                                            </a>
+                                        </div>
+                                        <p class="video-title">J.S. Bach: Variaciones Goldberg, BWV 988 (ciclo de 9 cánones a todos los intervalos)</p>
+                                    
+                                
+                            
+                                
+                                    
+                                        <div class="youtube-embed-container">
+                                            <iframe 
+                                                src="https://www.youtube.com/embed/Y9OUfBDIGhw?start=2677" 
+                                                title="J.S. Bach: El Arte de la Fuga, BWV 1080" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                            </iframe>
+                                        </div>
+                                        <p class="video-title">J.S. Bach: El Arte de la Fuga, BWV 1080</p>
+                                    
+                                
+                            
+                                
+                                    
+                                        <div class="youtube-embed-container" style="display: flex; align-items: center; justify-content: center; min-height: 120px;">
+                                            <a href="https://youtu.be/PcTVkOzrzQs" target="_blank" rel="noopener noreferrer" class="video-external-link">
+                                                ▶️ Ver vídeo en YouTube
+                                            </a>
+                                        </div>
+                                        <p class="video-title">J.S. Bach: Ofrenda Musical, BWV 1079 (Canon perpetuus y Canones diversi)</p>
+                                    
+                                
+                            
+                                
+                                    
+                                        <div class="youtube-embed-container">
+                                            <iframe 
+                                                src="https://www.youtube.com/embed/YCp5XC2rsEM?start=1365" 
+                                                title="César Franck: Sonata para violín y piano en La Mayor (Canon a la octava)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                            </iframe>
+                                        </div>
+                                        <p class="video-title">César Franck: Sonata para violín y piano en La Mayor (Canon a la octava)</p>
+                                    
+                                
+                            
+                        </div>
+                    
+                
+            </article>
+        </main>
+    </div>
+    <div id="image-lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="lightbox-caption"></div>
+    </div>
+    <button id="go-top-btn" title="Ir arriba"><i class="fa-solid fa-arrow-up"></i></button>
+    <script src="static/js/app.js"></script>
 </body>
 </html>
