@@ -1,4 +1,4 @@
-import { DocumentContent } from './types';
+import { DocumentContent } from '../types.ts';
 
 export const documentContent: DocumentContent = [
     { type: 'h1', content: 'EL CANON Y LA TÉCNICA IMITATIVA', slug: 'el-canon-y-la-técnica-imitativa' },

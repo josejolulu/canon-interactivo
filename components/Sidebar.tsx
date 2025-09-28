@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Heading } from '../types';
+import { Heading } from '../types.ts';
 
 interface SidebarProps {
     tableOfContents: Heading[];

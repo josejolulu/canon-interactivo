@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { documentContent } from './data/content';
-import { DocumentContent, Heading, ImageBlock } from './types';
-import HeaderAndNav from './components/HeaderAndNav';
-import Sidebar from './components/Sidebar';
-import Article from './components/Article';
+import { documentContent } from './data/content.ts';
+import { DocumentContent, Heading, ImageBlock } from './types.ts';
+import HeaderAndNav from './components/HeaderAndNav.tsx';
+import Sidebar from './components/Sidebar.tsx';
+import Article from './components/Article.tsx';
 
 type Theme = 'light' | 'dark';
 

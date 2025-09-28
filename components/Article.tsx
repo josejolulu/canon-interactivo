@@ -1,5 +1,5 @@
 import React from 'react';
-import { DocumentContent, ContentSection, ContentBlockItem, ImageBlock } from '../types';
+import { DocumentContent, ContentSection, ContentBlockItem, ImageBlock } from '../types.ts';
 
 interface ArticleProps {
     content: DocumentContent;

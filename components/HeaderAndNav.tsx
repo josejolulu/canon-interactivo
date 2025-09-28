@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Heading } from '../types';
+import { Heading } from '../types.ts';
 
 interface HeaderAndNavProps {
     isMenuOpen: boolean;
